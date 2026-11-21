@@ -1,0 +1,39 @@
+services:
+  backend:
+    build: .
+    image: activedefenseir-backend:latest
+    command: ["python", "main.py"]
+    ports:
+      - "8000:8000"
+    environment:
+      TARGET_PORT: "8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  ws-bridge:
+    image: activedefenseir-backend:latest
+    depends_on:
+      - backend
+    command: ["python", "ws_server.py"]
+    ports:
+      - "8765:8765"
+    environment:
+      WS_PORT: "8765"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8765/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_WS_URL: ${VITE_WS_URL:-ws://localhost:8765/ws/dashboard}
+    ports:
+      - "3001:80"
+    depends_on:
+      - ws-bridge

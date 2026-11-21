@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ── Cyber SOC Theme ── */
+@theme {
+  --color-cyber-green: #00ff41;
+  --color-neon-cyan: #00e5ff;
+  --color-cyber-amber: #ffb300;
+  --color-cyber-red: #ff003c;
+  --color-cyber-magenta: #e040fb;
+  --color-bg-dark: #050508;
+  --color-panel-bg: rgba(8, 12, 18, 0.75);
+  --color-panel-border: rgba(0, 229, 255, 0.15);
+
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ── Base layer ── */
+@layer base {
+  :root {
+    background-color: var(--color-bg-dark);
+    color: #cbd5e1;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image:
+      linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Radial glow */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(0,229,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* CRT scan-lines */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.12) 0px,
+      rgba(0, 0, 0, 0.12) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
+/* ── Custom utilities ── */
+@utility panel {
+  background: var(--color-panel-bg);
+  border: 1px solid var(--color-panel-border);
+  border-radius: 0.75rem;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.04);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@utility panel-head {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--color-panel-border);
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.08), transparent);
+  color: var(--color-neon-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@utility chip {
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+@utility mono {
+  font-family: var(--font-mono);
+}
+
+@utility scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Keyframes ── */
+@keyframes scanY {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.3; }
+  94% { opacity: 1; }
+  95% { opacity: 0.5; }
+  96% { opacity: 1; }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes ticker {
+  0% { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(255, 0, 60, 0.6); }
+  50% { box-shadow: 0 0 22px rgba(255, 0, 60, 0.9); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Animation classes ── */
+.anim-pulseDot  { animation: pulseDot 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+.anim-flicker   { animation: flicker 4s infinite; }
+.anim-spinSlow  { animation: spinSlow 8s linear infinite; }
+.anim-ticker    { animation: ticker 30s linear infinite; }
+.anim-glowPulse { animation: glowPulse 2s infinite; }
+.anim-fadeInUp  { animation: fadeInUp 0.3s ease-out; }
+
+/* ── Scan-line overlay for threat stream ── */
+.scan-line::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(0,229,255,0.12), transparent);
+  animation: scanY 5s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,229,255,0.5); }
+
+/* ── Report markdown styling ── */
+.report-md h1 { font-size: 1.3rem; color: var(--color-cyber-green); margin: 1rem 0 0.5rem; font-weight: 700; }
+.report-md h2 { font-size: 1.05rem; color: var(--color-neon-cyan); margin: 1rem 0 0.4rem; font-weight: 600; }
+.report-md h3 { font-size: 0.9rem; color: var(--color-cyber-amber); margin: 0.8rem 0 0.3rem; }
+.report-md p  { margin: 0.4rem 0; line-height: 1.6; }
+.report-md ul, .report-md ol { padding-left: 1.2rem; margin: 0.3rem 0; }
+.report-md li { margin: 0.15rem 0; }
+.report-md code { background: rgba(0,0,0,0.5); color: var(--color-cyber-amber); padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.8rem; }
+.report-md table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+.report-md th { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--color-panel-border); color: var(--color-neon-cyan); font-size: 0.8rem; }
+.report-md td { padding: 0.3rem 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; }
+.report-md strong { color: #f1f5f9; }
