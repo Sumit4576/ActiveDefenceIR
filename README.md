@@ -1,4 +1,4 @@
-# ActiveDefenseIR
+# ActiveDefenceIR
 
 An active-defense incident-response lab. ActiveDefenseIR simulates a target web service, detects malicious traffic with an ML anomaly model, steers attackers into containerized honeypots, and uses AI agents to write a threat-intelligence report. A React dashboard streams all of it live.
 
