@@ -41,7 +41,7 @@ const REPORTS = [
 **Investigation ID:** INV-20260712-A1B2
 
 ## Executive Summary
-The ActiveDefenseIR system detected **23 anomaly alerts** across the monitoring window. The Isolation Forest flagged SQL injection, XSS, and directory traversal attempts originating from **3 unique source IPs**. The deception grid deployed **12 honeypot instances**, capturing **165 malicious payloads**.
+The ActiveDefenceIR system detected **23 anomaly alerts** across the monitoring window. The Isolation Forest flagged SQL injection, XSS, and directory traversal attempts originating from **3 unique source IPs**. The deception grid deployed **12 honeypot instances**, capturing **165 malicious payloads**.
 
 ## Attacker Profile
 | Attribute | Details |
@@ -132,7 +132,7 @@ function HeaderBar({ stats, time, wsConnected }: { stats: { requests: number; th
         <div className="w-3 h-3 rounded-full bg-[var(--color-cyber-red)] anim-glowPulse" />
         <div>
           <h1 className="text-lg font-bold text-[var(--color-neon-cyan)] tracking-[0.15em] uppercase leading-tight">
-            ActiveDefenseIR
+            ActiveDefenceIR
           </h1>
           <p className="text-[0.65rem] text-slate-500 mono tracking-widest">AUTONOMOUS DECEPTION &amp; AI INVESTIGATION</p>
         </div>
@@ -319,7 +319,7 @@ function ReportViewer({ report }: { report: string }) {
       const el = reportRef.current
       const opt = {
         margin: [12, 12, 12, 12],
-        filename: 'ActiveDefenseIR_Threat_Report_' + new Date().toISOString().slice(0, 10) + '.pdf',
+        filename: 'ActiveDefenceIR_Threat_Report_' + new Date().toISOString().slice(0, 10) + '.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, backgroundColor: '#0a0e14', useCORS: true },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' as const },

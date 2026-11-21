@@ -1,4 +1,4 @@
-# Contributing to ActiveDefenseIR
+# Contributing to ActiveDefenceIR
 
 ## Workflow
 

@@ -1,6 +1,6 @@
 # ActiveDefenceIR
 
-An active-defense incident-response lab. ActiveDefenseIR simulates a target web service, detects malicious traffic with an ML anomaly model, steers attackers into containerized honeypots, and uses AI agents to write a threat-intelligence report. A React dashboard streams all of it live.
+An active-defence incident-response lab. ActiveDefenceIR simulates a target web service, detects malicious traffic with an ML anomaly model, steers attackers into containerized honeypots, and uses AI agents to write a threat-intelligence report. A React dashboard streams all of it live.
 
 ## Architecture
 
@@ -26,7 +26,7 @@ An active-defense incident-response lab. ActiveDefenseIR simulates a target web 
 |---|---|---|
 | 1. Target environment | Mock login API plus benign and malicious traffic generator | `main.py`, `log_generator.py`, `run_module1.py` |
 | 2. Detection engineering | Feature extraction and Isolation Forest anomaly detection | `train_model.py`, `detection_engine.py`, `run_module2.py` |
-| 3. Active defense | Deploys a honeypot container per attacker and aggregates its logs | `deception_orchestrator.py`, `honeypot_monitor.py`, `run_module3.py` |
+| 3. Active defence | Deploys a honeypot container per attacker and aggregates its logs | `deception_orchestrator.py`, `honeypot_monitor.py`, `run_module3.py` |
 | 4. AI investigation | Multi-agent analysis and a Markdown threat report | `ai_agents.py`, `run_module4.py` |
 | Dashboard | Live alerts, honeypot grid, agent log, report | `ws_server.py`, `frontend/` |
 

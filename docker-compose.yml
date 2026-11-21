@@ -1,7 +1,7 @@
 services:
   backend:
     build: .
-    image: activedefenseir-backend:latest
+    image: activedefenceir-backend:latest
     command: ["python", "main.py"]
     ports:
       - "8000:8000"
@@ -14,7 +14,7 @@ services:
       retries: 5
 
   ws-bridge:
-    image: activedefenseir-backend:latest
+    image: activedefenceir-backend:latest
     depends_on:
       - backend
     command: ["python", "ws_server.py"]

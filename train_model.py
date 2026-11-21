@@ -142,7 +142,7 @@ def train(log_path: Path, synthesize_count: int = 0) -> None:
     RESET = "\033[0m"
 
     print(f"\n{CYAN}{BOLD}{'='*60}{RESET}")
-    print(f"{CYAN}{BOLD}  Active Defense IR — Model Training (Module 2){RESET}")
+    print(f"{CYAN}{BOLD}  Active Defence IR — Model Training (Module 2){RESET}")
     print(f"{CYAN}{BOLD}{'='*60}{RESET}")
 
     # Load existing log data

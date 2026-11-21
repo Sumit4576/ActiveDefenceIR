@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-LABEL maintainer="ActiveDefenseIR"
+LABEL maintainer="ActiveDefenceIR"
 LABEL description="Web honeypot — fake vulnerable web app for trapping SQL injection attackers"
 
 # Create log directory

@@ -243,7 +243,7 @@ async def health():
 
 if __name__ == "__main__":
     print("=" * 50)
-    print("  ActiveDefenseIR WebSocket Bridge")
+    print("  ActiveDefenceIR WebSocket Bridge")
     print("  ws://localhost:8765/ws/dashboard")
     print("=" * 50)
     uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("WS_PORT", 8765)), log_level="warning")

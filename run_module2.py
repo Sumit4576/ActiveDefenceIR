@@ -29,7 +29,7 @@ def run_module_2():
     model_dir = Path(project_dir) / "model"
 
     print(f"\n{CYAN}{BOLD}{'='*60}{RESET}")
-    print(f"{CYAN}{BOLD}  Active Defense IR - Module 2: Detection Engine{RESET}")
+    print(f"{CYAN}{BOLD}  Active Defence IR - Module 2: Detection Engine{RESET}")
     print(f"{CYAN}{BOLD}{'='*60}{RESET}")
 
     # Check if model exists

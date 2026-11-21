@@ -1,7 +1,7 @@
 [project]
-name = "activedefenseir"
+name = "activedefenceir"
 version = "0.1.0"
-description = "Active-defense incident response lab: anomaly detection, honeypot deception and AI threat reports"
+description = "Active-defence incident response lab: anomaly detection, honeypot deception and AI threat reports"
 readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "MIT" }

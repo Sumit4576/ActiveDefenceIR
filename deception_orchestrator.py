@@ -1,5 +1,5 @@
 """
-Deception Orchestrator — Active Defense Engine (Module 3)
+Deception Orchestrator — Active Defence Engine (Module 3)
 =========================================================
 Consumes alerts from Module 2's detection engine (alerts.log) and
 dynamically deploys Docker honeypot containers to trap attackers.
@@ -147,7 +147,7 @@ class DeceptionOrchestrator:
 
     def _ensure_web_image(self) -> str:
         """Build the web honeypot Docker image if not already cached."""
-        image_tag = "activedefenseir/web-honeypot:latest"
+        image_tag = "activedefenceir/web-honeypot:latest"
         try:
             self._docker_client.images.get(image_tag)
             print(f"  {GREEN}✓ Web honeypot image found (cached).{RESET}")
@@ -272,7 +272,7 @@ class DeceptionOrchestrator:
 
     def _deploy_web_honeypot(self, name: str, host_port: int, log_dir: Path, alert: dict):
         """Deploy a web honeypot container."""
-        image_tag = "activedefenseir/web-honeypot:latest"
+        image_tag = "activedefenceir/web-honeypot:latest"
         container = self._docker_client.containers.run(
             image=image_tag,
             name=name,
@@ -289,7 +289,7 @@ class DeceptionOrchestrator:
                 "HONEYPOT_PORT": "8080",
             },
             labels={
-                "activedefenseir": "true",
+                "activedefenceir": "true",
                 "honeypot_type": "web",
                 "alert_id": alert["alert_id"],
                 "attacker_ip": alert["source_ip"],
@@ -315,7 +315,7 @@ class DeceptionOrchestrator:
                 "COWRIE_LOG_PATH": "/cowrie/var/log/cowrie",
             },
             labels={
-                "activedefenseir": "true",
+                "activedefenceir": "true",
                 "honeypot_type": "ssh",
                 "alert_id": alert["alert_id"],
                 "attacker_ip": alert["source_ip"],

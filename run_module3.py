@@ -1,5 +1,5 @@
 """
-Module 3 Runner -- Active Defense / Deception Orchestrator
+Module 3 Runner -- Active Defence / Deception Orchestrator
 ===========================================================
 Orchestrates the full Module 1 + Module 2 + Module 3 pipeline:
   1. Checks Docker availability (alerts user if not running)
@@ -42,7 +42,7 @@ def run_module_3():
     # Banner
     # ------------------------------------------------------------------
     print(f"\n{MAGENTA}{BOLD}{'='*60}{RESET}")
-    print(f"{MAGENTA}{BOLD}  Active Defense IR - Module 3: Deception Orchestrator{RESET}")
+    print(f"{MAGENTA}{BOLD}  Active Defence IR - Module 3: Deception Orchestrator{RESET}")
     print(f"{MAGENTA}{BOLD}{'='*60}{RESET}")
     print(f"{DIM}  Pipeline: Traffic Sim -> Detection Engine -> Honeypot Deploy{RESET}")
 
@@ -135,7 +135,7 @@ def run_module_3():
     # System is LIVE
     # ------------------------------------------------------------------
     print(f"\n{MAGENTA}{BOLD}{'='*60}{RESET}")
-    print(f"{MAGENTA}{BOLD}  🍯  ACTIVE DEFENSE SYSTEM IS LIVE{RESET}")
+    print(f"{MAGENTA}{BOLD}  🍯  ACTIVE DEFENCE SYSTEM IS LIVE{RESET}")
     print(f"{MAGENTA}{BOLD}{'='*60}{RESET}")
     print(f"  {DIM}Traffic → Anomaly Detection → Honeypot Deployment{RESET}")
     print(f"  {DIM}Press Ctrl+C to stop the entire pipeline.{RESET}\n")

@@ -5,7 +5,7 @@ import os
 
 
 def run_module_1():
-    print("Starting Active Defense IR - Module 1")
+    print("Starting Active Defence IR - Module 1")
 
     # 1. Start FastAPI Backend
     print("-> Starting FastAPI Backend...")

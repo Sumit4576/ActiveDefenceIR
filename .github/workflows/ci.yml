@@ -81,7 +81,7 @@ jobs:
       - name: Build and push
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          docker build -t ghcr.io/$OWNER/activedefenseir-backend:${{ github.sha }} -t ghcr.io/$OWNER/activedefenseir-backend:latest .
-          docker build -t ghcr.io/$OWNER/activedefenseir-frontend:${{ github.sha }} -t ghcr.io/$OWNER/activedefenseir-frontend:latest frontend
-          docker push --all-tags ghcr.io/$OWNER/activedefenseir-backend
-          docker push --all-tags ghcr.io/$OWNER/activedefenseir-frontend
+          docker build -t ghcr.io/$OWNER/activedefenceir-backend:${{ github.sha }} -t ghcr.io/$OWNER/activedefenceir-backend:latest .
+          docker build -t ghcr.io/$OWNER/activedefenceir-frontend:${{ github.sha }} -t ghcr.io/$OWNER/activedefenceir-frontend:latest frontend
+          docker push --all-tags ghcr.io/$OWNER/activedefenceir-backend
+          docker push --all-tags ghcr.io/$OWNER/activedefenceir-frontend
